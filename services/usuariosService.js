@@ -48,7 +48,7 @@ const update = async (req, res) => {
       message: 'Dados para atualizacao vazio',
     });
   }
-  const id = req.body._id;
+  const id = req.params.id;
   try {
     await UsuarioModel.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
