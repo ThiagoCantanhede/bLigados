@@ -5,9 +5,9 @@ let schema = mongoose.Schema({
   nomeDeUsuario: String,
   password: String,
   tipo: String,
-  // anoCadastro: Number,
-  // mesCadastro: Number,
-  // diaCadastro: Number,
+  email: String,
+  dataNascimento: String,
+  dataCadastro: String,
 });
 
 const UsuariosModel = mongoose.model('usuarios', schema);

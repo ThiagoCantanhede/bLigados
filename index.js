@@ -33,8 +33,8 @@ app.get('/api/', (_, response) => {
 /**
  * Rotas principais do app
  */
-app.use('/api/transaction', route);
-
+app.use('/api/transaction', route.usuariosRouter);
+app.use('/api/transaction', route.curriculoRouter);
 /**
  * Conexão ao Banco de Dados
  */
