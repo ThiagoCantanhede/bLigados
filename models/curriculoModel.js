@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let schema = mongoose.Schema({
   formacao: String,
   competencias: String,
-  emperienciaProfissional: String,
+  experienciaProfissional: String,
   usuarioId: String,
 });
 
