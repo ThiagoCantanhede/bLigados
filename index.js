@@ -35,6 +35,7 @@ app.get('/api/', (_, response) => {
  */
 app.use('/api/transaction', route.usuariosRouter);
 app.use('/api/transaction', route.curriculoRouter);
+app.use('/api/transaction', route.vagasRouter);
 /**
  * Conexão ao Banco de Dados
  */

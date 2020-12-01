@@ -3,7 +3,6 @@ const usuariosService = require('../services/usuariosService.js');
 const usuariosRouter = express.Router();
 const curriculosService = require('../services/curriculoService.js');
 const curriculoRouter = express.Router();
-
 const vagasService = require('../services/vagasService.js');
 const vagasRouter = express.Router();
 
