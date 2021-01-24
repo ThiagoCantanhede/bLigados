@@ -5,6 +5,8 @@ const curriculosService = require('../services/curriculoService.js');
 const curriculoRouter = express.Router();
 const vagasService = require('../services/vagasService.js');
 const vagasRouter = express.Router();
+const artigoService = require('../services/artigoService.js');
+const artigoRouter = express.Router();
 
 usuariosRouter.put('/usuario/:id', usuariosService.update);
 usuariosRouter.post('/usuario/', usuariosService.create);
@@ -27,4 +29,11 @@ vagasRouter.get('/vaga/:id', vagasService.findOne);
 vagasRouter.delete('/vaga/:id', vagasService.remove);
 vagasRouter.delete('/vaga/', vagasService.removeAll);
 
-module.exports = { usuariosRouter, curriculoRouter, vagasRouter };
+artigoRouter.put('/artigo/:id', vagasService.update);
+artigoRouter.post('/artigo/', vagasService.create);
+artigoRouter.get('/artigo/', vagasService.findAll);
+artigoRouter.get('/artigo/:id', vagasService.findOne);
+artigoRouter.delete('/artigo/:id', vagasService.remove);
+artigoRouter.delete('/artigo/', vagasService.removeAll);
+
+module.exports = { usuariosRouter, curriculoRouter, vagasRouter, artigoRouter };
