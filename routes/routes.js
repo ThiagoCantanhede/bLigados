@@ -29,11 +29,11 @@ vagasRouter.get('/vaga/:id', vagasService.findOne);
 vagasRouter.delete('/vaga/:id', vagasService.remove);
 vagasRouter.delete('/vaga/', vagasService.removeAll);
 
-artigoRouter.put('/artigo/:id', vagasService.update);
-artigoRouter.post('/artigo/', vagasService.create);
-artigoRouter.get('/artigo/', vagasService.findAll);
-artigoRouter.get('/artigo/:id', vagasService.findOne);
-artigoRouter.delete('/artigo/:id', vagasService.remove);
-artigoRouter.delete('/artigo/', vagasService.removeAll);
+artigoRouter.put('/artigo/:id', artigoService.update);
+artigoRouter.post('/artigo/', artigoService.create);
+artigoRouter.get('/artigo/', artigoService.findAll);
+artigoRouter.get('/artigo/:id', artigoService.findOne);
+artigoRouter.delete('/artigo/:id', artigoService.remove);
+artigoRouter.delete('/artigo/', artigoService.removeAll);
 
 module.exports = { usuariosRouter, curriculoRouter, vagasRouter, artigoRouter };
