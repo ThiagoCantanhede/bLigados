@@ -15,9 +15,8 @@ const create = async (req, res) => {
 };
 
 const findAll = async (req, res) => {
-  const period = req.query.period;
   try {
-    const data = await UsuarioModel.find({ yearMonth: period });
+    const data = await UsuarioModel.find();
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {
@@ -25,6 +24,21 @@ const findAll = async (req, res) => {
       .status(500)
       .send({ message: error.message || 'Erro ao listar todos os documentos' });
     console.log(`GET /grade - ${JSON.stringify(error.message)}`);
+  }
+};
+
+const buscarUsuario = async (req, res) => {
+  const usuario = req.query.usuario;
+  console.log(usuario);
+  try {
+    const data = await UsuarioModel.find({ nomeDeUsuario: usuario });
+    res.send(data);
+    console.log(` essa GET /usuario`);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ message: error.message || 'Erro ao listar um usuario' });
+    console.log(`GET /usuario - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -93,4 +107,12 @@ const removeAll = async (req, res) => {
   }
 };
 
-module.exports = { create, findAll, findOne, update, remove, removeAll };
+module.exports = {
+  create,
+  findAll,
+  findOne,
+  update,
+  remove,
+  removeAll,
+  buscarUsuario,
+};
