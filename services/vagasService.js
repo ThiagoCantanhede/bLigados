@@ -7,11 +7,9 @@ const create = async (req, res) => {
     res.send();
     console.log(`POST /grade - ${JSON.stringify()}`);
   } catch (error) {
-    res
-      .status(500)
-      .send({
-        message: error.message || 'Algum erro ocorreu ao salvar a vaga',
-      });
+    res.status(500).send({
+      message: error.message || 'Algum erro ocorreu ao salvar a vaga',
+    });
     console.log(`POST /grade - ${JSON.stringify(error.message)}`);
   }
 };

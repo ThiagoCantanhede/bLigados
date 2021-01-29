@@ -29,11 +29,18 @@ const findAll = async (req, res) => {
 
 const buscarUsuario = async (req, res) => {
   const usuario = req.query.usuario;
-  console.log(usuario);
+  const senha = req.query.senha;
   try {
     const data = await UsuarioModel.find({ nomeDeUsuario: usuario });
-    res.send(data);
-    console.log(` essa GET /usuario`);
+    if (JSON.parse(JSON.stringify(data[0])).password == senha) {
+      res.send(data);
+      console.log(` essa GET /usuario`);
+    } else {
+      res
+        .status(500)
+        .send({ message: 'Erro ao listar um usuario - Senha incorreta!' });
+      console.log(`GET /usuario - Senha incorreta`);
+    }
   } catch (error) {
     res
       .status(500)
