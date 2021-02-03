@@ -36,9 +36,7 @@ const buscarUsuario = async (req, res) => {
       res.send(data);
       console.log(` essa GET /usuario`);
     } else {
-      res
-        .status(500)
-        .send({ message: 'Erro ao listar um usuario - Senha incorreta!' });
+      res.status(500).send({ message: 'Senha incorreta!' });
       console.log(`GET /usuario - Senha incorreta`);
     }
   } catch (error) {
