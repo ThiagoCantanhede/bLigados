@@ -37,6 +37,7 @@ app.use('/api/transaction', route.usuariosRouter);
 app.use('/api/transaction', route.curriculoRouter);
 app.use('/api/transaction', route.vagasRouter);
 app.use('/api/transaction', route.artigoRouter);
+app.use('/api/transaction', route.vagasCandidatosRouter);
 
 /**
  * Conexão ao Banco de Dados
