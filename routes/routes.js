@@ -39,12 +39,24 @@ artigoRouter.get('/artigo/:id', artigoService.findOne);
 artigoRouter.delete('/artigo/:id', artigoService.remove);
 artigoRouter.delete('/artigo/', artigoService.removeAll);
 
-vagasCandidatosRouter.put('/artigo/:id', vagasCandidatosService.update);
-vagasCandidatosRouter.post('/artigo/', vagasCandidatosService.create);
-vagasCandidatosRouter.get('/artigo/', vagasCandidatosService.findAll);
-vagasCandidatosRouter.get('/artigo/:id', vagasCandidatosService.findOne);
-vagasCandidatosRouter.delete('/artigo/:id', vagasCandidatosService.remove);
-vagasCandidatosRouter.delete('/artigo/', vagasCandidatosService.removeAll);
+vagasCandidatosRouter.put(
+  '/vagasCandidatos/:id',
+  vagasCandidatosService.update
+);
+vagasCandidatosRouter.post('/vagasCandidatos/', vagasCandidatosService.create);
+vagasCandidatosRouter.get('/vagasCandidatos/', vagasCandidatosService.findAll);
+vagasCandidatosRouter.get(
+  '/vagasCandidatos/:id',
+  vagasCandidatosService.findOne
+);
+vagasCandidatosRouter.delete(
+  '/vagasCandidatos/:id',
+  vagasCandidatosService.remove
+);
+vagasCandidatosRouter.delete(
+  '/vagasCandidatos/',
+  vagasCandidatosService.removeAll
+);
 vagasCandidatosRouter.get(
   '/encontrarVagasDoCandidato/',
   vagasCandidatosService.encontrarVagasDoCandidato

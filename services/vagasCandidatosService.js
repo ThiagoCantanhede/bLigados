@@ -16,7 +16,6 @@ const create = async (req, res) => {
 };
 
 const findAll = async (req, res) => {
-  const usuario = req.query.usuario;
   try {
     const data = await VagasCandidatosModel.find();
     res.send(data);
