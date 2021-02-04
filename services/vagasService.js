@@ -17,7 +17,7 @@ const create = async (req, res) => {
 const findAll = async (req, res) => {
   const usuario = req.query.usuario;
   try {
-    const data = await VagasModel.find({ usuario: usuario });
+    const data = await VagasModel.find({ usuarioId: usuario });
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {
