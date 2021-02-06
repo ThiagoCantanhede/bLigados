@@ -46,7 +46,7 @@ const encontrarCurriculoPorUsuario = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await CurriculoModel.findById({ usuarioId: id });
+    const data = await CurriculoModel.find({ usuarioId: id });
     res.send(data);
   } catch (error) {
     res
