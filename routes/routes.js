@@ -21,6 +21,10 @@ usuariosRouter.delete('/usuario/', usuariosService.removeAll);
 curriculoRouter.put('/curriculo/:id', curriculosService.update);
 curriculoRouter.post('/curriculo/', curriculosService.create);
 curriculoRouter.get('/curriculo/', curriculosService.findAll);
+curriculoRouter.get(
+  '/curriculoPorUsuario/',
+  curriculosService.encontrarCurriculoPorUsuario
+);
 curriculoRouter.get('/curriculo/:id', curriculosService.findOne);
 curriculoRouter.delete('/curriculo/:id', curriculosService.remove);
 curriculoRouter.delete('/curriculo/', curriculosService.removeAll);

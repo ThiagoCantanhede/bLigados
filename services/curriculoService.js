@@ -42,6 +42,20 @@ const findOne = async (req, res) => {
   }
 };
 
+const encontrarCurriculoPorUsuario = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await CurriculoModel.findById({ usuarioId: id });
+    res.send(data);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ message: 'Erro ao buscar o curriculo do usuário: ' + id });
+    console.log(`GET /grade - ${JSON.stringify(error.message)}`);
+  }
+};
+
 const update = async (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -91,4 +105,12 @@ const removeAll = async (req, res) => {
   }
 };
 
-module.exports = { create, findAll, findOne, update, remove, removeAll };
+module.exports = {
+  create,
+  findAll,
+  findOne,
+  update,
+  remove,
+  removeAll,
+  encontrarCurriculoPorUsuario,
+};
