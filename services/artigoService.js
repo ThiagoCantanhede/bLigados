@@ -16,8 +16,13 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
   const usuario = req.query.usuario;
+  let data = null;
   try {
-    const data = await ArtigoModel.find({ usuario: usuario });
+    if (usuario) {
+      data = await ArtigoModel.find({ autorId: usuario });
+    } else {
+      data = await ArtigoModel.find({});
+    }
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {
