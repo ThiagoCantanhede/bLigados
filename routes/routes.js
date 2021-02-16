@@ -72,7 +72,6 @@ vagasCandidatosRouter.get(
   vagasCandidatosService.encontrarCandidatosDaVaga
 );
 
-mensagemRouter.put('/mensagem/:id', mensagemService.update);
 mensagemRouter.post('/mensagem/', mensagemService.create);
 mensagemRouter.get(
   '/mensagemPorAutor/',
