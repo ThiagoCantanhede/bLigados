@@ -82,9 +82,9 @@ mensagemRouter.get(
   '/mensagemPorDestinatario/',
   mensagemService.encontrarMensagemPorDestinatario
 );
-mensagemRouter.get('/mensagem/:id', curriculosService.findOne);
-mensagemRouter.delete('/mensagem/:id', curriculosService.remove);
-mensagemRouter.delete('/mensagem/', curriculosService.removeAll);
+mensagemRouter.get('/mensagem/:id', mensagemService.findOne);
+mensagemRouter.delete('/mensagem/:id', mensagemService.remove);
+mensagemRouter.delete('/mensagem/', mensagemService.removeAll);
 
 module.exports = {
   usuariosRouter,
