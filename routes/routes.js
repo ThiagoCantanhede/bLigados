@@ -11,6 +11,8 @@ const vagasCandidatosService = require('../services/vagasCandidatosService.js');
 const vagasCandidatosRouter = express.Router();
 const mensagemService = require('../services/mensagemService.js');
 const mensagemRouter = express.Router();
+const auditoriaService = require('../services/auditoriaService.js');
+const auditoriaRouter = express.Router();
 
 usuariosRouter.put('/usuario/:id', usuariosService.update);
 usuariosRouter.post('/usuario/', usuariosService.create);
@@ -85,6 +87,15 @@ mensagemRouter.get('/mensagem/:id', mensagemService.findOne);
 mensagemRouter.delete('/mensagem/:id', mensagemService.remove);
 mensagemRouter.delete('/mensagem/', mensagemService.removeAll);
 
+auditoriaRouter.post('/auditoria/', auditoriaService.create);
+auditoriaRouter.get(
+  '/acoesPorUsuario/',
+  auditoriaService.retornarAcoesPorUsuario
+);
+auditoriaRouter.get('/acoesPorTipo/', auditoriaService.retornarAcoesPorTipo);
+auditoriaRouter.get('/auditoria/:id', auditoriaService.findOne);
+auditoriaRouter.get('/auditoria/', auditoriaService.findAll);
+
 module.exports = {
   usuariosRouter,
   curriculoRouter,
@@ -92,4 +103,5 @@ module.exports = {
   artigoRouter,
   vagasCandidatosRouter,
   mensagemRouter,
+  auditoriaRouter,
 };
