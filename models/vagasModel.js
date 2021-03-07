@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 let schema = mongoose.Schema({
   titulo: String,
+  codigo: SVGFESpecularLightingElement,
   competencias: String,
   descricao: String,
   rendimentos: String,

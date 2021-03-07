@@ -36,6 +36,10 @@ curriculoRouter.delete('/curriculo/', curriculosService.removeAll);
 vagasRouter.put('/vaga/:id', vagasService.update);
 vagasRouter.post('/vaga/', vagasService.create);
 vagasRouter.get('/vaga/', vagasService.findAll);
+vagasRouter.get(
+  '/encontrarVagaPorCodigo/',
+  vagasService.encontrarVagaPorCodigo
+);
 vagasRouter.get('/vaga/:id', vagasService.findOne);
 vagasRouter.delete('/vaga/:id', vagasService.remove);
 vagasRouter.delete('/vaga/', vagasService.removeAll);

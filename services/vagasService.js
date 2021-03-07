@@ -1,6 +1,13 @@
 const VagasModel = require('../models/vagasModel');
 
+const gerarCodigoVaga = () => {
+  var min = Math.ceil(1);
+  var max = Math.floor(999999999);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 const create = async (req, res) => {
+  req.body.codigo = gerarCodigoVaga();
   const trasaction = new VagasModel(req.body);
   try {
     await trasaction.save(trasaction);
@@ -23,6 +30,21 @@ const findAll = async (req, res) => {
     } else {
       data = await VagasModel.find({});
     }
+    res.send(data);
+    console.log(` essa GET /grade`);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ message: error.message || 'Erro ao listar todos os documentos' });
+    console.log(`GET /grade - ${JSON.stringify(error.message)}`);
+  }
+};
+
+const encontrarVagaPorCodigo = async (req, res) => {
+  const codigo = req.query.codigo;
+  let data = null;
+  try {
+    data = await VagasModel.find({ codigo: codigo });
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {
@@ -96,4 +118,12 @@ const removeAll = async (req, res) => {
   }
 };
 
-module.exports = { create, findAll, findOne, update, remove, removeAll };
+module.exports = {
+  create,
+  findAll,
+  findOne,
+  update,
+  remove,
+  removeAll,
+  encontrarVagaPorCodigo,
+};
