@@ -1,7 +1,7 @@
-const ContatoModel = require('../models/contatosModel');
+const ProjetoModel = require('../models/projetosModel');
 
 const create = async (req, res) => {
-  const trasaction = new ContatoModel(req.body);
+  const trasaction = new ProjetoModel(req.body);
   try {
     await trasaction.save(trasaction);
     res.send();
@@ -16,7 +16,7 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
   try {
-    const data = await ContatoModel.find({});
+    const data = await ProjetoModel.find({});
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {
@@ -30,7 +30,7 @@ const findAll = async (req, res) => {
 const findOne = async (req, res) => {
   const id = req.params.id;
   try {
-    const data = await ContatoModel.findById({ _id: id });
+    const data = await ProjetoModel.findById({ _id: id });
     res.send(data);
 
     console.log(` ou essa GET /grade - ${id}`);
@@ -48,7 +48,7 @@ const update = async (req, res) => {
   }
   const id = req.params.id;
   try {
-    await ContatoModel.findByIdAndUpdate({ _id: id }, req.body, {
+    await ProjetoModel.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
     });
     res.send({ message: 'curriculo atualizado com sucesso' });
@@ -62,7 +62,7 @@ const remove = async (req, res) => {
   const id = req.params.id;
 
   try {
-    await ContatoModel.findByIdAndRemove({ _id: id });
+    await ProjetoModel.findByIdAndRemove({ _id: id });
     res.send({ message: 'Curriculo excluido com sucesso' });
 
     console.log(`DELETE /grade - ${id}`);
@@ -78,7 +78,7 @@ const removeAll = async (req, res) => {
   const id = req.params.id;
 
   try {
-    await ContatoModel.deleteMany();
+    await ProjetoModel.deleteMany();
     res.send({
       message: `Curriculos excluidos`,
     });

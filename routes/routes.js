@@ -15,6 +15,8 @@ const auditoriaService = require('../services/auditoriaService.js');
 const auditoriaRouter = express.Router();
 const contatoService = require('../services/contatoService.js');
 const contatoRouter = express.Router();
+const projetoService = require('../services/projetoService.js');
+const projetoRouter = express.Router();
 
 usuariosRouter.put('/usuario/:id', usuariosService.update);
 usuariosRouter.post('/usuario/', usuariosService.create);
@@ -102,12 +104,19 @@ auditoriaRouter.get('/acoesPorTipo/', auditoriaService.retornarAcoesPorTipo);
 auditoriaRouter.get('/auditoria/:id', auditoriaService.findOne);
 auditoriaRouter.get('/auditoria/', auditoriaService.findAll);
 
-contatoRouter.put('/contato/:id', artigoService.update);
-contatoRouter.post('/contato/', artigoService.create);
-contatoRouter.get('/contato/', artigoService.findAll);
-contatoRouter.get('/contato/:id', artigoService.findOne);
-contatoRouter.delete('/contato/:id', artigoService.remove);
-contatoRouter.delete('/contato/', artigoService.removeAll);
+contatoRouter.put('/contato/:id', contatoService.update);
+contatoRouter.post('/contato/', contatoService.create);
+contatoRouter.get('/contato/', contatoService.findAll);
+contatoRouter.get('/contato/:id', contatoService.findOne);
+contatoRouter.delete('/contato/:id', contatoService.remove);
+contatoRouter.delete('/contato/', contatoService.removeAll);
+
+projetoRouter.put('/projeto/:id', projetoService.update);
+projetoRouter.post('/projeto/', projetoService.create);
+projetoRouter.get('/projeto/', projetoService.findAll);
+projetoRouter.get('/projeto/:id', projetoService.findOne);
+projetoRouter.delete('/projeto/:id', projetoService.remove);
+projetoRouter.delete('/projeto/', projetoService.removeAll);
 
 module.exports = {
   usuariosRouter,
@@ -118,4 +127,5 @@ module.exports = {
   mensagemRouter,
   auditoriaRouter,
   contatoRouter,
+  projetoRouter,
 };
