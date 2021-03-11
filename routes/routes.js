@@ -13,6 +13,8 @@ const mensagemService = require('../services/mensagemService.js');
 const mensagemRouter = express.Router();
 const auditoriaService = require('../services/auditoriaService.js');
 const auditoriaRouter = express.Router();
+const contatoService = require('../services/contatoService.js');
+const contatoRouter = express.Router();
 
 usuariosRouter.put('/usuario/:id', usuariosService.update);
 usuariosRouter.post('/usuario/', usuariosService.create);
@@ -100,6 +102,13 @@ auditoriaRouter.get('/acoesPorTipo/', auditoriaService.retornarAcoesPorTipo);
 auditoriaRouter.get('/auditoria/:id', auditoriaService.findOne);
 auditoriaRouter.get('/auditoria/', auditoriaService.findAll);
 
+contatoRouter.put('/contato/:id', artigoService.update);
+contatoRouter.post('/contato/', artigoService.create);
+contatoRouter.get('/contato/', artigoService.findAll);
+contatoRouter.get('/contato/:id', artigoService.findOne);
+contatoRouter.delete('/contato/:id', artigoService.remove);
+contatoRouter.delete('/contato/', artigoService.removeAll);
+
 module.exports = {
   usuariosRouter,
   curriculoRouter,
@@ -108,4 +117,5 @@ module.exports = {
   vagasCandidatosRouter,
   mensagemRouter,
   auditoriaRouter,
+  contatoRouter,
 };
