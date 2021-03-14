@@ -22,7 +22,7 @@ const findAll = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .send({ message: error.message || 'Erro ao listar todos os documentos' });
+      .send({ message: error.message || 'Erro ao listar todos os contatos' });
     console.log(`GET /grade - ${JSON.stringify(error.message)}`);
   }
 };
@@ -32,11 +32,9 @@ const findOne = async (req, res) => {
   try {
     const data = await ContatoModel.findById({ _id: id });
     res.send(data);
-
-    console.log(` ou essa GET /grade - ${id}`);
   } catch (error) {
-    res.status(500).send({ message: 'Erro ao buscar o Grade id: ' + id });
-    console.log(`GET /grade - ${JSON.stringify(error.message)}`);
+    res.status(500).send({ message: 'Erro ao buscar o contato id: ' + id });
+    console.log(`GET / - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -51,10 +49,10 @@ const update = async (req, res) => {
     await ContatoModel.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
     });
-    res.send({ message: 'curriculo atualizado com sucesso' });
+    res.send({ message: 'contato atualizado com sucesso' });
   } catch (error) {
-    res.status(500).send({ message: 'Erro ao atualizar a Grade id: ' + id });
-    console.log(`PUT /grade - ${JSON.stringify(error.message)}`);
+    res.status(500).send({ message: 'Erro ao atualizar o contato id: ' + id });
+    console.log(`PUT /- ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -63,14 +61,14 @@ const remove = async (req, res) => {
 
   try {
     await ContatoModel.findByIdAndRemove({ _id: id });
-    res.send({ message: 'Curriculo excluido com sucesso' });
+    res.send({ message: 'Contato excluido com sucesso' });
 
-    console.log(`DELETE /grade - ${id}`);
+    console.log(`DELETE / - ${id}`);
   } catch (error) {
     res
       .status(500)
-      .send({ message: 'Nao foi possivel deletar o curriculo id: ' + id });
-    console.log(`DELETE /grade - ${JSON.stringify(error.message)}`);
+      .send({ message: 'Nao foi possivel deletar o contato id: ' + id });
+    console.log(`DELETE / - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -80,12 +78,12 @@ const removeAll = async (req, res) => {
   try {
     await ContatoModel.deleteMany();
     res.send({
-      message: `Curriculos excluidos`,
+      message: `Contatos excluidos`,
     });
-    console.log(`DELETE /grade`);
+    console.log(`DELETE /`);
   } catch (error) {
-    res.status(500).send({ message: 'Erro ao excluir todos as Curriculos' });
-    console.log(`DELETE /grade - ${JSON.stringify(error.message)}`);
+    res.status(500).send({ message: 'Erro ao excluir todos os contatos' });
+    console.log(`DELETE / - ${JSON.stringify(error.message)}`);
   }
 };
 
