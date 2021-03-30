@@ -1,4 +1,4 @@
-const AgendamentoModel = require('../models/auditoriaModel');
+const AgendamentoModel = require('../models/agendamentoModel');
 
 const create = async (req, res) => {
   const trasaction = new AgendamentoModel(req.body);
