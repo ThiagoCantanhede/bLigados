@@ -42,6 +42,7 @@ app.use('/api/transaction', route.mensagemRouter);
 app.use('/api/transaction', route.auditoriaRouter);
 app.use('/api/transaction', route.contatoRouter);
 app.use('/api/transaction', route.projetoRouter);
+app.use('/api/transaction', route.agendamentoRouter);
 
 /**
  * Conexão ao Banco de Dados

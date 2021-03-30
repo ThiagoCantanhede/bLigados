@@ -31,7 +31,7 @@ const findOne = async (req, res) => {
 const findAll = async (req, res) => {
   let data = null;
   try {
-    data = await ArtigoModel.find({});
+    data = await AuditoriaModel.find({});
     res.send(data);
     console.log(` essa GET /grade`);
   } catch (error) {

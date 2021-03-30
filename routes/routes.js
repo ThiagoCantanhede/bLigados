@@ -17,6 +17,8 @@ const contatoService = require('../services/contatoService.js');
 const contatoRouter = express.Router();
 const projetoService = require('../services/projetoService.js');
 const projetoRouter = express.Router();
+const agendamentoService = require('../services/agendamentoService.js');
+const agendamentoRouter = express.Router();
 
 usuariosRouter.put('/usuario/:id', usuariosService.update);
 usuariosRouter.post('/usuario/', usuariosService.create);
@@ -118,6 +120,18 @@ projetoRouter.get('/projeto/:id', projetoService.findOne);
 projetoRouter.delete('/projeto/:id', projetoService.remove);
 projetoRouter.delete('/projeto/', projetoService.removeAll);
 
+agendamentoRouter.post('/agendamento/', agendamentoService.create);
+agendamentoRouter.get(
+  '/agendamentosPorRecrutador/',
+  agendamentoService.retornarAgendamentosPorRecrutador
+);
+agendamentoRouter.get(
+  '/agendamentosPorCandidato/',
+  agendamentoService.retornarAgendamentosPorCandidato
+);
+agendamentoRouter.get('/agendamento/:id', agendamentoService.findOne);
+agendamentoRouter.get('/agendamento/', agendamentoService.findAll);
+
 module.exports = {
   usuariosRouter,
   curriculoRouter,
@@ -128,4 +142,5 @@ module.exports = {
   auditoriaRouter,
   contatoRouter,
   projetoRouter,
+  agendamentoRouter,
 };
